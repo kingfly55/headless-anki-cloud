@@ -39,20 +39,20 @@ This will enable Anki to be accessed using a VNC viewer which might help with de
 ## Building
 To quickly build the image yourself, issue:
 ```bash
-docker build --progress=plain . -t headless-anki:test
+docker build --progress=plain . -t headless-anki:custom
 ```
 
 Different versions of each component (Anki, QT, AnkiConnect) can be installed.  
 Supply those versions as build flags:
 ```bash
 docker build \
-    --build-arg ANKICONNECT_VERSION=24.7.25.0 \
-    --build-arg ANKI_VERSION=24.06.3 \
+    --build-arg ANKICONNECT_VERSION=25.2.25.0 \
+    --build-arg ANKI_VERSION=25.02.4 \
     --build-arg QT_VERSION=6 \
-    -t headless-anki:test \
+    -t headless-anki:custom \
     .
 ```
 
 For available versions, refer to:
 - [Anki GitHub releases](https://github.com/ankitects/anki/releases)
-- [AnkiConnect releases](https://git.foosoft.net/alex/anki-connect/releases)
+- [AnkiConnect releases](https://git.sr.ht/~foosoft/anki-connect/refs)

@@ -1,7 +1,7 @@
 FROM debian:12.4-slim
 
-ARG ANKICONNECT_VERSION=24.7.25.0
-ARG ANKI_VERSION=24.06.3
+ARG ANKICONNECT_VERSION=25.2.25.0
+ARG ANKI_VERSION=25.02.4
 ARG QT_VERSION=6
 
 RUN apt update && apt install --no-install-recommends -y \
@@ -41,9 +41,9 @@ VOLUME /export
 
 # Plugin installation
 WORKDIR /app
-RUN git clone -b ${ANKICONNECT_VERSION} --single-branch -n --depth=1 --filter=tree:0 \
-        https://git.foosoft.net/alex/anki-connect.git && \
-        cd anki-connect && git sparse-checkout set --no-cone plugin && git checkout
+RUN curl -L https://git.sr.ht/~foosoft/anki-connect/archive/${ANKICONNECT_VERSION}.tar.gz | \
+    tar -xz && \
+    mv anki-connect-${ANKICONNECT_VERSION} anki-connect
 RUN chown -R anki:anki /app/anki-connect/plugin && \
     ln -s -f /app/anki-connect/plugin /data/addons21/AnkiConnectDev
 
