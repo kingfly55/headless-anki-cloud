@@ -1,0 +1,3 @@
+[submodule "ai-docs/openapi-servers"]
+	path = ai-docs/openapi-servers
+	url = https://github.com/open-webui/openapi-servers.git
