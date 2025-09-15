@@ -1,3 +1,6 @@
 [submodule "ai-docs/openapi-servers"]
 	path = ai-docs/openapi-servers
 	url = https://github.com/open-webui/openapi-servers.git
+[submodule "anki-mcp"]
+	path = anki-mcp
+	url = https://github.com/nailuoGG/anki-mcp-server.git
